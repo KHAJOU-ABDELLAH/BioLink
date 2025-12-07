@@ -1207,6 +1207,10 @@
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(el);
         });
+        // Simple hover effect for the add member card
+        document.querySelector('.add-member').addEventListener('click', function() {
+            alert('To add a team member, duplicate one of the student-card divs and edit the information.');
+        });
     </script>
 </body>
 </html>
