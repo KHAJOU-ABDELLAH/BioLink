@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioPartners - Sustainable Agriculture Partnership</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --secondary: #ff9800;
+            --secondary-light: #ffb74d;
+            --light: #f9f9f9;
+            --dark: #333;
+            --gray: #666;
+            --light-gray: #eee;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f57c00;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 8rem 0;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* Project Summary */
+        .project-summary {
+            background-color: white;
+        }
+
+        .summary-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .summary-text {
+            flex: 1;
+        }
+
+        .summary-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .summary-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background-color: #f5f9f5;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .problem-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Solution Section */
+        .solution-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Business Model */
+        .business-model {
+            background-color: #f5f9f5;
+        }
+
+        .model-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .model-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            width: 250px;
+        }
+
+        .model-item i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        /* Market Section */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .market-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .market-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .market-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Competitors Section */
+        .competitors-section {
+            background-color: #f5f9f5;
+        }
+
+        .competitor-table {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .advantage {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Goals Section */
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .goal-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .goal-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .goal-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: #f5f9f5;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .team-slogan {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .summary-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .hero {
+                padding: 5rem 0;
+                min-height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .team-name {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Bio<span>Partners</span></a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#summary">Project</a></li>
+                    <li><a href="#problem">Problem</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#model">Business Model</a></li>
+                    <li><a href="#market">Market</a></li>
+                    <li><a href="#goals">Goals</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sustainable Agriculture Partnership</h1>
+                <p>Connecting established bio-production companies with local farmers to create affordable organic products, promote soil health, and foster economic inclusion.</p>
+                <div class="hero-btns">
+                    <a href="#summary" class="btn">Explore Our Project</a>
+                    <a href="#contact" class="btn btn-secondary">Join Our Mission</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Summary -->
+    <section id="summary" class="project-summary">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Summary</h2>
+            </div>
+            <div class="summary-content">
+                <div class="summary-text">
+                    <h3>Building Sustainable Partnerships for Bio-Agriculture</h3>
+                    <p>Our project creates sustainable partnerships between established organic production companies and local farmers. By sharing scientific expertise and resources (fertilizers, tools, training), these companies enable farmers to increase their productivity while preserving soil fertility.</p>
+                    <p>In exchange, farmers provide organic products at more accessible prices for the market. This model promotes economic inclusion, job creation, and land access for farmers without property, while encouraging sustainable and supportive agriculture.</p>
+                    <a href="#solution" class="btn">Discover Our Solution</a>
+                </div>
+                <div class="summary-image">
+                    <img src="https://images.unsplash.com/photo-1589923186741-b7d59d6b2c4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Sustainable agriculture partnership">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Problem & Need</h2>
+                <p>Key challenges our project addresses in the agricultural ecosystem</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>High Organic Product Prices</h3>
+                    <p>Organic products remain expensive for the majority of consumers, limiting accessibility to healthy food options.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Lack of Scientific Training</h3>
+                    <p>Many farmers lack scientific training and resources to optimize their production without depleting the soil.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-tractor"></i>
+                    <h3>Limited Land Access</h3>
+                    <p>Some rural populations don't have access to land, limiting their participation in the agricultural economy.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Lack of Economic Equity</h3>
+                    <p>The local agricultural market lacks social inclusion and economic fairness for small-scale farmers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Solution</h2>
+                <p>A comprehensive partnership model for sustainable and inclusive agriculture</p>
+            </div>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Knowledge & Resource Sharing</h3>
+                        <p>Established bio-companies provide scientific training, fertilizers, tools, and technical support to local farmers.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Sustainable Cultivation Practices</h3>
+                        <p>Local farmers cultivate organic products following good agricultural practices and soil preservation techniques.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Affordable Market Access</h3>
+                        <p>Products are supplied to companies at reduced prices, enabling broader consumer access to organic goods.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Land Access & Economic Inclusion</h3>
+                        <p>Farmers without land can access lent or shared plots, strengthening economic inclusion and participation.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Job Creation & Sustainable Network</h3>
+                        <p>The project stimulates local employment and creates a sustainable network between producers and companies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section id="model" class="business-model">
+        <div class="container">
+            <div class="section-title">
+                <h2>Business Model</h2>
+                <p>A hybrid B2B & B2C approach for sustainable agriculture</p>
+            </div>
+            <div class="model-diagram">
+                <div class="model-item">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Farmers</h3>
+                    <p>Local agricultural producers</p>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="model-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>B2B Partnership</h3>
+                    <p>Sell products to companies at reduced prices</p>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="model-item">
+                    <i class="fas fa-industry"></i>
+                    <h3>Bio-Companies</h3>
+                    <p>Established organic producers</p>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="model-item">
+                    <i class="fas fa-shopping-basket"></i>
+                    <h3>B2C Market</h3>
+                    <p>Redistribute affordable organic products nationally</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Section -->
+    <section id="market" class="market-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Target Market</h2>
+                <p>The key stakeholders who benefit from our agricultural partnership model</p>
+            </div>
+            <div class="market-grid">
+                <div class="market-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Urban Consumers</h3>
+                    <p>Seeking organic products at affordable prices, prioritizing health and sustainability in their purchasing decisions.</p>
+                </div>
+                <div class="market-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Local Farmers</h3>
+                    <p>Small-scale agricultural producers wanting to benefit from training, resources, and land access opportunities.</p>
+                </div>
+                <div class="market-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Bio-Companies</h3>
+                    <p>Established organic businesses seeking to secure sustainable and ethical supply chains for their products.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitors Section -->
+    <section id="competitors" class="competitors-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Competitive Analysis</h2>
+                <p>How our solution differs from existing alternatives in the market</p>
+            </div>
+            <div class="competitor-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competitor Type</th>
+                            <th>Limitations</th>
+                            <th>Our Advantage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>National/Import Organic Producers</td>
+                            <td>Sell at high prices, limited local impact</td>
+                            <td class="advantage">Affordable pricing with strong local economic inclusion</td>
+                        </tr>
+                        <tr>
+                            <td>Existing Agricultural Cooperatives</td>
+                            <td>Often limited to specific regions without scientific training</td>
+                            <td class="advantage">Nationwide reach with comprehensive scientific training programs</td>
+                        </tr>
+                        <tr>
+                            <td>European Sustainable Agriculture Initiatives</td>
+                            <td>Not always combined with an inclusive, affordable economic model</td>
+                            <td class="advantage">Holistic model combining sustainability, affordability, and inclusion</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="goals-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>AgriChallenge Goals</h2>
+                <p>Our objectives for participating in the AgriChallenge competition</p>
+            </div>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>National Pilot Development</h3>
+                    <p>Develop and pilot this partnership model on a national scale, testing its effectiveness across different regions.</p>
+                </div>
+                <div class="goal-card">
+                    <i class="fas fa-comments-dollar"></i>
+                    <h3>Expert Feedback & Funding</h3>
+                    <p>Obtain expert feedback and explore funding opportunities to scale the project effectively.</p>
+                </div>
+                <div class="goal-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Social & Economic Inclusion</h3>
+                    <p>Promote social and economic inclusion of local farmers, creating sustainable livelihood opportunities.</p>
+                </div>
+                <div class="goal-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainable Production Access</h3>
+                    <p>Make sustainable organic production accessible to all consumers, regardless of income level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+                <p>Meet the passionate individuals behind this initiative</p>
+            </div>
+            <div class="team-name">Green Synergy Collective</div>
+            <div class="team-slogan">"Cultivating Partnerships, Growing Communities"</div>
+            <p>Our multidisciplinary team brings together expertise in agriculture, business development, sustainability, and community engagement to create transformative change in the agricultural sector.</p>
+            <a href="#contact" class="btn">Join Our Collective</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Bio<span>Partners</span></div>
+                    <p>Creating sustainable partnerships between established organic companies and local farmers to make organic products accessible while promoting soil health and economic inclusion.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#summary">Project Summary</a></li>
+                        <li><a href="#problem">Problem Analysis</a></li>
+                        <li><a href="#solution">Our Solution</a></li>
+                        <li><a href="#model">Business Model</a></li>
+                        <li><a href="#market">Target Market</a></li>
+                        <li><a href="#goals">Our Goals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Agricultural Innovation Hub, Casablanca, Morocco</p>
+                    <p><i class="fas fa-phone"></i> +212 6 XX XX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> contact@biopartners.ma</p>
+                    <p><i class="fas fa-calendar-alt"></i> AgriChallenge Competition 2023</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 BioPartners - Green Synergy Collective. All rights reserved. | AgriChallenge Project</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.problem-card, .market-card, .goal-card, .step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
